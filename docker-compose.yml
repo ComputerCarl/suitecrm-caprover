@@ -1,0 +1,22 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes: 
+      - /var/www/html
+      - /var/spool/cron/crontabs
+  db:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: strong_pwd
+      MYSQL_DATABASE: suitecrm
+      MYSQL_USER: suitecrm
+      MYSQL_PASSWORD: strong_pwd
+networks:
+  suitenet:

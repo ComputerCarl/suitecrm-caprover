@@ -1,0 +1,36 @@
+{
+  "version": "3",
+  "services": {
+    "app": {
+      "build": "7.11.6",
+      "ports": [
+        "8080:80"
+      ],
+      "environment": {
+        "DB_TYPE": "mysql",
+        "DB_MANAGER": "MysqliManager"
+      },
+      "volumes": [
+        "/var/www/html"
+      ]
+    },
+    "db": {
+      "image": "mysql:5.7",
+      "volumes": [
+        "/var/lib/mysql"
+      ],
+      "ports": [
+        "3306:3306"
+      ],
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "k3498ksadjJHHAsfdksj",
+        "MYSQL_DATABASE": "suitecrm",
+        "MYSQL_USER": "suitecrm",
+        "MYSQL_PASSWORD": "kasdjJSAD823UYYTGs"
+      }
+    }
+  },
+  "networks": {
+    "suitenet": null
+  }
+}
